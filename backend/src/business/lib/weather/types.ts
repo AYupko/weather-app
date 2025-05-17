@@ -9,3 +9,16 @@ export const weatherAPIResponseSchema = z.object({
 });
 
 export type WeatherAPIResponse = z.infer<typeof weatherAPIResponseSchema>;
+
+export type WeatherSuccess = {
+  success: true;
+  data: {
+    temperature: number;
+    humidity: number;
+    description: string;
+  };
+};
+
+export type WeatherFailure = {
+  success: false;
+};

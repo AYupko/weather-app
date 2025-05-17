@@ -1,9 +1,17 @@
-import { weatherAPIResponseSchema } from "./types";
-import { BadRequestError, InternalServerError, NotFoundError } from "../error";
+import {
+  weatherAPIResponseSchema,
+  WeatherFailure,
+  WeatherSuccess,
+} from "./types";
+import { BadRequestError, NotFoundError } from "../error";
 
 const BASE_URL = "http://api.weatherapi.com/v1";
 
-export const getWeatherByCity = async ({ city }: { city: string }) => {
+export const getWeatherByCity = async ({
+  city,
+}: {
+  city: string;
+}): Promise<WeatherSuccess | WeatherFailure> => {
   const url = `${BASE_URL}/current.json?key=${
     process.env.WEATHER_API_KEY
   }&q=${encodeURIComponent(city)}`;
@@ -23,14 +31,18 @@ export const getWeatherByCity = async ({ city }: { city: string }) => {
   const raw = await response.json();
   const current = raw?.current;
 
-  const data = weatherAPIResponseSchema.parse(current);
+  try {
+    const data = weatherAPIResponseSchema.parse(current);
 
-  return {
-    success: true,
-    data: {
-      temperature: data.temp_c,
-      humidity: data.humidity,
-      description: data.condition.text,
-    },
-  };
+    return {
+      success: true,
+      data: {
+        temperature: data.temp_c,
+        humidity: data.humidity,
+        description: data.condition.text,
+      },
+    };
+  } catch (error) {
+    return { success: false };
+  }
 };
