@@ -7,7 +7,7 @@ const configureRoutes = async (fastify: FastifyInstance) => {
 
   fastify.register(weatherRoutes, { prefix: defaultPrefix + "weather" });
 
-  fastify.register(subscriptionRoutes);
+  fastify.register(subscriptionRoutes, { prefix: defaultPrefix });
 };
 
 export { configureRoutes };

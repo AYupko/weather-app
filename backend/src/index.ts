@@ -1,6 +1,8 @@
 import Fastify from "fastify";
 import dotenv from "dotenv";
 import cors from "@fastify/cors";
+import formbody from '@fastify/formbody';
+
 import { configureRoutes } from "./routes";
 
 dotenv.config();
@@ -15,6 +17,8 @@ const start = async () => {
       origin: true,
       credentials: true,
     });
+
+    await fastify.register(formbody);
 
     configureRoutes(fastify);
 

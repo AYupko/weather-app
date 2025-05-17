@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start:dev": "nodemon -L",
+    "dev": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate:apply": "prisma migrate dev --schema src/database/prisma/schema.prisma",
     "prisma:migrate:create": "prisma migrate dev --schema src/database/prisma/schema.prisma --create-only",
@@ -26,12 +26,14 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
+    "@fastify/formbody": "^8.0.2",
     "@prisma/client": "^6.7.0",
     "axios": "^1.9.0",
     "dotenv": "^16.5.0",
     "fastify": "^5.3.3",
     "nodemailer": "^7.0.3",
     "prisma": "^6.7.0",
-    "zod": "^3.24.4"
+    "zod": "^3.24.4",
+    "zod-to-json-schema": "^3.24.5"
   }
 }
