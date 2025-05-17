@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint src --ext .ts",
     "start:dev": "nodemon -L",
     "dev": "node dist/index.js",
     "prisma:generate": "prisma generate",
@@ -20,6 +21,10 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^22.15.18",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "nodemon": "^3.1.10",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
