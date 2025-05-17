@@ -9,6 +9,14 @@ const subscriptionBodySchema = z.object({
 
 type SubscriptionInput = z.infer<typeof subscriptionBodySchema>;
 
-export { subscriptionBodySchema };
+const subscriptionTokenParamsSchema = z.object({
+  token: z.string().uuid(),
+});
 
-export type { SubscriptionInput };
+type SubscriptionTokenParams = z.infer<
+  typeof subscriptionTokenParamsSchema
+>;
+
+export { subscriptionBodySchema, subscriptionTokenParamsSchema };
+
+export type { SubscriptionInput, SubscriptionTokenParams };

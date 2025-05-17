@@ -28,5 +28,8 @@ services:
     volumes:
        - ./backend/src:/app/src
 
+    command: sh -c "npx prisma migrate deploy && npm run start:dev"
+
+
 volumes:
   pgdata:

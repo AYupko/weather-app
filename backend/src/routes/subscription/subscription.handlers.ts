@@ -1,5 +1,8 @@
 import { subscriptionService } from "@/business/services";
-import { SubscriptionInput } from "@/schemas/subscription.schema";
+import {
+  SubscriptionInput,
+  SubscriptionTokenParams,
+} from "@/schemas/subscription.schema";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 const subscribe = async (
@@ -15,4 +18,26 @@ const subscribe = async (
   });
 };
 
-export { subscribe };
+const confirmSubscription = async (
+  request: FastifyRequest<{ Params: SubscriptionTokenParams }>,
+  reply: FastifyReply
+) => {
+  const token = request.params.token;
+
+  await subscriptionService.confirmSubscription({ token });
+
+  return reply.code(200).send();
+};
+
+const unsubscribe = async (
+  request: FastifyRequest<{ Params: SubscriptionTokenParams }>,
+  reply: FastifyReply
+) => {
+  const token = request.params.token;
+
+  await subscriptionService.unsubscribe({ token });
+
+  return reply.code(200).send();
+};
+
+export { subscribe, confirmSubscription, unsubscribe };
