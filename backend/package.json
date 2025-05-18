@@ -6,7 +6,7 @@
     "build": "tsc",
     "lint": "eslint src --ext .ts",
     "start:dev": "nodemon -L",
-    "dev": "node dist/index.js",
+    "dev": "node -r tsconfig-paths/register dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate:apply": "prisma migrate dev --schema src/database/prisma/schema.prisma",
     "prisma:migrate:create": "prisma migrate dev --schema src/database/prisma/schema.prisma --create-only",
@@ -36,6 +36,7 @@
     "dotenv": "^16.5.0",
     "fastify": "^5.3.3",
     "prisma": "^6.7.0",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^3.24.4",
     "zod-to-json-schema": "^3.24.5"
   }
