@@ -11,7 +11,7 @@ Built with Fastify, Prisma, PostgreSQL, and a lightweight HTML/CSS/JS frontend.
 - **GET /weather?city=CityName** – Fetch current weather for a city
 
 - Simple HTML page to initiate the subscription
-- The API and Database was deployed to Render ([Live URL](https://weather-api.onrender.com))
+- The API and Database was deployed to Render (API URL - https://weather-api.onrender.com)
 - Sending confirmation emails (optional)
 ## 🧰 Tech Stack
 
