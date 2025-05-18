@@ -1,5 +1,6 @@
 import { InternalServerError } from "../error";
 
+const BASE_API_URL = process.env.BASE_API_URL;
 const RESEND_API_URL = "https://api.resend.com/emails";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
@@ -14,7 +15,7 @@ export const sendConfirmationEmail = async ({
     return;
    }
 
-  const confirmationLink = `http://localhost:3000/api/confirm/${token}`;
+  const confirmationLink = `${BASE_API_URL}/api/confirm/${token}`;
 
   const res = await fetch(RESEND_API_URL, {
     method: "POST",
