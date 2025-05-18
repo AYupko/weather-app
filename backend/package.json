@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc && tsc-alias",
     "lint": "eslint src --ext .ts",
-    "start:dev": "nodemon -L",
-    "dev": "node -r tsconfig-paths/register dist/index.js",
+    "start:dev": "nodemon -L src/index.ts",
+    "dev": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate:apply": "prisma migrate dev --schema src/database/prisma/schema.prisma",
     "prisma:migrate:create": "prisma migrate dev --schema src/database/prisma/schema.prisma --create-only",
@@ -26,6 +26,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "nodemon": "^3.1.10",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   },
