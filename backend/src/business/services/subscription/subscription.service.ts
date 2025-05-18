@@ -1,3 +1,4 @@
+import { sendConfirmationEmail } from "@/business/lib/emails";
 import { ConflictError, NotFoundError } from "@/business/lib/error";
 import { subscriptionRepository } from "@/database/repositories";
 import { SubscriptionInput } from "@/schemas/subscription.schema";
@@ -24,7 +25,7 @@ const subscribe = async ({ payload }: { payload: SubscriptionInput }) => {
     },
   });
 
-  //TODO: implement sending confirmation email
+  await sendConfirmationEmail({ to: payload.email, token });
 };
 
 const confirmSubscription = async ({ token }: { token: string }) => {
