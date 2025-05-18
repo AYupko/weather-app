@@ -1,4 +1,4 @@
-# 🌤️ Weather Subscription API
+# 🌤️ Weather Subscription app
 
 A full-stack service for managing email subscriptions to weather updates.
 Built with Fastify, Prisma, PostgreSQL, and a lightweight HTML/CSS/JS frontend.
