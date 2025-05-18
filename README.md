@@ -9,9 +9,10 @@ Built with Fastify, Prisma, PostgreSQL, and a lightweight HTML/CSS/JS frontend.
 - **GET /confirm/:token** – Confirm email subscription
 - **GET /unsubscribe/:token** – Unsubscribe from weather updates
 - **GET /weather?city=CityName** – Fetch current weather for a city
+
 - Simple HTML page to initiate the subscription
-- The API was deployed to Render ([Live URL](https://weather-api.onrender.com))
-- **Sending confirmation emails (optional)
+- The API and Database was deployed to Render ([Live URL](https://weather-api.onrender.com))
+- Sending confirmation emails (optional)
 ## 🧰 Tech Stack
 
 - **Fastify** with TypeScript
